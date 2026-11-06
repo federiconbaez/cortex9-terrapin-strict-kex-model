@@ -1,0 +1,25 @@
+{
+  "name": "03_benign_strict_rekey",
+  "description": "No attacker, strict on both sides, one re-exchange; resets at every NEWKEYS must stay in step.",
+  "client": {
+    "supports_strict": true
+  },
+  "server": {
+    "supports_strict": true
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ChannelData",
+    "ChannelData"
+  ],
+  "attack": []
+}

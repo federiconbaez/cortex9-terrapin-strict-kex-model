@@ -1,0 +1,31 @@
+{
+  "name": "19_terrapin_c2s_legacy",
+  "description": "Client-to-server direction, no strict KEX; drops first encrypted client packet.",
+  "client": {
+    "supports_strict": false
+  },
+  "server": {
+    "supports_strict": false
+  },
+  "binding": "SeqBound",
+  "direction": "client_to_server",
+  "stream": [
+    "Kexinit",
+    "KexEcdhInit",
+    "Newkeys",
+    "ServiceRequest",
+    "UserauthRequest",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 1,
+      "msg": "Ignore"
+    },
+    {
+      "op": "drop",
+      "index": 3
+    }
+  ]
+}

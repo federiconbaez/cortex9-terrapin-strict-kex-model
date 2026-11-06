@@ -1,0 +1,36 @@
+{
+  "name": "11_strip_forward_markers",
+  "description": "Attacker strips the server marker from its KEXINIT, then performs the wire edit.",
+  "client": {
+    "supports_strict": true
+  },
+  "server": {
+    "supports_strict": true
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "UserauthSuccess",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "strip_markers",
+      "index": 0
+    },
+    {
+      "op": "inject_before",
+      "index": 1,
+      "msg": "Ignore"
+    },
+    {
+      "op": "drop",
+      "index": 3
+    }
+  ]
+}

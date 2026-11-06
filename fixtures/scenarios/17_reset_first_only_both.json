@@ -1,0 +1,27 @@
+{
+  "name": "17_reset_first_only_both",
+  "description": "Defect variant: both sides reset only at the first NEWKEYS; consistent, no attacker.",
+  "client": {
+    "supports_strict": true,
+    "reset_seq_first_only": true
+  },
+  "server": {
+    "supports_strict": true,
+    "reset_seq_first_only": true
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ChannelData",
+    "ChannelData"
+  ],
+  "attack": []
+}

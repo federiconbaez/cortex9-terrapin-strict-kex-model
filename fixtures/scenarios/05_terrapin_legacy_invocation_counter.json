@@ -1,0 +1,32 @@
+{
+  "name": "05_terrapin_legacy_invocation_counter",
+  "description": "Same wire edit with an invocation-counter AEAD binding (RFC 5647 style).",
+  "client": {
+    "supports_strict": false
+  },
+  "server": {
+    "supports_strict": false
+  },
+  "binding": "InvocationCounter",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "UserauthSuccess",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 1,
+      "msg": "Ignore"
+    },
+    {
+      "op": "drop",
+      "index": 3
+    }
+  ]
+}

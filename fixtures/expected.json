@@ -1,0 +1,112 @@
+{
+  "01_benign_legacy": {
+    "verdict": "intact",
+    "termination": null,
+    "why": ""
+  },
+  "02_benign_strict": {
+    "verdict": "intact",
+    "termination": null,
+    "why": ""
+  },
+  "03_benign_strict_rekey": {
+    "verdict": "intact",
+    "termination": null,
+    "why": ""
+  },
+  "04_terrapin_legacy_seqbound": {
+    "verdict": "silent_truncation",
+    "termination": null,
+    "why": "Injected IGNORE advances receiver seq by 1 while sender seq is unchanged; dropping one encrypted packet realigns them (OpenSSH release-9.6 description)."
+  },
+  "05_terrapin_legacy_invocation_counter": {
+    "verdict": "detected",
+    "termination": "IntegrityFailure",
+    "why": "Plaintext injection does not move the per-key invocation counter; the drop leaves the receiver one behind."
+  },
+  "06_terrapin_strict_full": {
+    "verdict": "detected",
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "why": "PROTOCOL 1.9 (a): IGNORE during initial strict KEX terminates."
+  },
+  "07_terrapin_strict_a_only": {
+    "verdict": "detected",
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "why": "Defense (a) alone suffices for this wire edit."
+  },
+  "08_terrapin_strict_b_only": {
+    "verdict": "detected",
+    "termination": "IntegrityFailure",
+    "why": "Defense (b) alone: reset at NEWKEYS discards the injected offset, so the drop is a mismatch."
+  },
+  "09_terrapin_server_only_supports": {
+    "verdict": "silent_truncation",
+    "termination": null,
+    "why": "Strict needs both markers; neither endpoint enables it."
+  },
+  "10_terrapin_client_only_supports": {
+    "verdict": "silent_truncation",
+    "termination": null,
+    "why": "Same as 09 from the other side."
+  },
+  "11_strip_forward_markers": {
+    "verdict": "detected",
+    "termination": "ExchangeHashMismatch",
+    "why": "KEXINIT payloads are inputs to H (RFC 4253 section 8); the altered I_S breaks host signature verification."
+  },
+  "12_strip_reverse_markers": {
+    "verdict": "detected",
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "why": "Client still saw the server marker and enforces (a); in reality H would also mismatch."
+  },
+  "13_strict_ignore_before_kexinit": {
+    "verdict": "detected",
+    "termination": "StrictFirstPacketNotKexinit",
+    "why": "PROTOCOL 1.9 (a): first packet must be KEXINIT."
+  },
+  "14_legacy_ignore_before_kexinit": {
+    "verdict": "detected",
+    "termination": "IntegrityFailure",
+    "why": "Injection without compensating drop desynchronises the counter."
+  },
+  "15_rekey_markers_ignored": {
+    "verdict": "silent_truncation",
+    "termination": null,
+    "why": "PROTOCOL 1.9: markers MUST be ignored in subsequent KEXINIT."
+  },
+  "16_reset_first_only_receiver": {
+    "verdict": "false_abort",
+    "termination": "IntegrityFailure",
+    "why": "PROTOCOL 1.9 (b) requires reset at every NEWKEYS; asymmetric implementation breaks after re-exchange."
+  },
+  "17_reset_first_only_both": {
+    "verdict": "intact",
+    "termination": null,
+    "why": "Consistent but non-compliant: the model shows no failure, which is a limitation of a benign-only check."
+  },
+  "18_forged_encrypted_injection": {
+    "verdict": "detected",
+    "termination": "IntegrityFailure",
+    "why": "Attacker holds no keys; forged ciphertext fails verification."
+  },
+  "19_terrapin_c2s_legacy": {
+    "verdict": "silent_truncation",
+    "termination": null,
+    "why": ""
+  },
+  "20_terrapin_c2s_strict": {
+    "verdict": "detected",
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "why": ""
+  },
+  "21_drop_without_inject_legacy": {
+    "verdict": "detected",
+    "termination": "IntegrityFailure",
+    "why": "A drop alone is detected by the sequence binding."
+  },
+  "22_injected_kex_message_strict": {
+    "verdict": "detected",
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "why": ""
+  }
+}

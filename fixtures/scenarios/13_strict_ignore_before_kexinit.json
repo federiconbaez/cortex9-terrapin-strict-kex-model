@@ -1,0 +1,28 @@
+{
+  "name": "13_strict_ignore_before_kexinit",
+  "description": "IGNORE injected before the first KEXINIT, strict on both sides.",
+  "client": {
+    "supports_strict": true
+  },
+  "server": {
+    "supports_strict": true
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "UserauthSuccess",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 0,
+      "msg": "Ignore"
+    }
+  ]
+}

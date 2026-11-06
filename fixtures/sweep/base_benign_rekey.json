@@ -1,0 +1,25 @@
+{
+  "name": "sweep_base_benign_rekey",
+  "description": "Benign base (one re-exchange, no attacker) for the counterfactual sweep; exposes false aborts from asymmetric defenses.",
+  "client": {
+    "supports_strict": false
+  },
+  "server": {
+    "supports_strict": false
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ChannelData",
+    "ChannelData"
+  ],
+  "attack": []
+}

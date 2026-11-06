@@ -1,0 +1,26 @@
+{
+  "name": "16_reset_first_only_receiver",
+  "description": "Defect variant: receiver resets the sequence only at the first NEWKEYS, sender at every NEWKEYS; no attacker.",
+  "client": {
+    "supports_strict": true,
+    "reset_seq_first_only": true
+  },
+  "server": {
+    "supports_strict": true
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ChannelData",
+    "ChannelData"
+  ],
+  "attack": []
+}

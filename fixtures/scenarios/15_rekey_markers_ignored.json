@@ -1,0 +1,39 @@
+{
+  "name": "15_rekey_markers_ignored",
+  "description": "Markers appear only in the re-exchange KEXINIT; they must not enable strict mode, so the initial-KEX edit still succeeds.",
+  "client": {
+    "supports_strict": false
+  },
+  "server": {
+    "supports_strict": false
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    {
+      "msg": "Kexinit",
+      "markers": [
+        "kex-strict-s-v00@openssh.com"
+      ]
+    },
+    "KexEcdhReply",
+    "Newkeys",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 1,
+      "msg": "Ignore"
+    },
+    {
+      "op": "drop",
+      "index": 3
+    }
+  ]
+}

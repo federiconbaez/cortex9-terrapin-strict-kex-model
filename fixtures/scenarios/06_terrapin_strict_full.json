@@ -1,0 +1,32 @@
+{
+  "name": "06_terrapin_strict_full",
+  "description": "Same wire edit, strict KEX on both sides with both defenses.",
+  "client": {
+    "supports_strict": true
+  },
+  "server": {
+    "supports_strict": true
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "UserauthSuccess",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 1,
+      "msg": "Ignore"
+    },
+    {
+      "op": "drop",
+      "index": 3
+    }
+  ]
+}

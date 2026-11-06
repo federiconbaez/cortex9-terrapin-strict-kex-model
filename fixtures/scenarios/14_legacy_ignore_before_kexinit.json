@@ -1,0 +1,28 @@
+{
+  "name": "14_legacy_ignore_before_kexinit",
+  "description": "IGNORE injected before the first KEXINIT, no strict KEX, no compensating drop: the receiver counter is shifted by one, so the first encrypted packet fails verification.",
+  "client": {
+    "supports_strict": false
+  },
+  "server": {
+    "supports_strict": false
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "UserauthSuccess",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 0,
+      "msg": "Ignore"
+    }
+  ]
+}

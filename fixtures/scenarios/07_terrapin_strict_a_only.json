@@ -1,0 +1,34 @@
+{
+  "name": "07_terrapin_strict_a_only",
+  "description": "Counterfactual: strict negotiated, only defense (a) reject-unexpected active.",
+  "client": {
+    "supports_strict": true,
+    "reset_seq": false
+  },
+  "server": {
+    "supports_strict": true,
+    "reset_seq": false
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "UserauthSuccess",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 1,
+      "msg": "Ignore"
+    },
+    {
+      "op": "drop",
+      "index": 3
+    }
+  ]
+}

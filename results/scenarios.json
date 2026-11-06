@@ -1,0 +1,2023 @@
+[
+  {
+    "scenario": "01_benign_legacy",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [],
+    "verdict": "intact",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 2,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 3,
+        "msg": "ExtInfo",
+        "honest_index": 3,
+        "tag": {
+          "Seq": 3
+        },
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 5,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "UserauthSuccess",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 5
+        },
+        "recv_seq_before": 5,
+        "recv_seq_after": 6,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 6,
+        "msg": "ChannelData",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 6
+        },
+        "recv_seq_before": 6,
+        "recv_seq_after": 7,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "02_benign_strict",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [],
+    "verdict": "intact",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": true,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 2,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 0,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "newkeys(reset=true)"
+      },
+      {
+        "wire_index": 3,
+        "msg": "ExtInfo",
+        "honest_index": 3,
+        "tag": {
+          "Seq": 0
+        },
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 1
+        },
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "UserauthSuccess",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 2
+        },
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 6,
+        "msg": "ChannelData",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 3
+        },
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "03_benign_strict_rekey",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "ChannelData",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "ChannelData",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [],
+    "verdict": "intact",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": true,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 2,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 0,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "newkeys(reset=true)"
+      },
+      {
+        "wire_index": 3,
+        "msg": "ExtInfo",
+        "honest_index": 3,
+        "tag": {
+          "Seq": 0
+        },
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 1
+        },
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "Kexinit",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 2
+        },
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "Established",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "rekey_kexinit(markers_ignored)"
+      },
+      {
+        "wire_index": 6,
+        "msg": "KexEcdhReply",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 3
+        },
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": true,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 7,
+        "msg": "Newkeys",
+        "honest_index": 7,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 0,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "newkeys(reset=true)"
+      },
+      {
+        "wire_index": 8,
+        "msg": "ChannelData",
+        "honest_index": 8,
+        "tag": {
+          "Seq": 0
+        },
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 9,
+        "msg": "ChannelData",
+        "honest_index": 9,
+        "tag": {
+          "Seq": 1
+        },
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "04_terrapin_legacy_seqbound",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [
+      3
+    ],
+    "verdict": "silent_truncation",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "ignored_during_kex"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 3,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 5,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "UserauthSuccess",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 5
+        },
+        "recv_seq_before": 5,
+        "recv_seq_after": 6,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 6,
+        "msg": "ChannelData",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 6
+        },
+        "recv_seq_before": 6,
+        "recv_seq_after": 7,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "05_terrapin_legacy_invocation_counter",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": "IntegrityFailure",
+    "terminated_at_wire_index": 4,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "ignored_during_kex"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 3,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Inv": 1
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 4,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "terminate:IntegrityFailure"
+      }
+    ]
+  },
+  {
+    "scenario": "06_terrapin_strict_full",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "terminated_at_wire_index": 1,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "terminate:StrictUnexpectedDuringInitialKex"
+      }
+    ]
+  },
+  {
+    "scenario": "07_terrapin_strict_a_only",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "terminated_at_wire_index": 1,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "terminate:StrictUnexpectedDuringInitialKex"
+      }
+    ]
+  },
+  {
+    "scenario": "08_terrapin_strict_b_only",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": "IntegrityFailure",
+    "terminated_at_wire_index": 4,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "ignored_during_kex"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": true,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 3,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 3,
+        "recv_seq_after": 0,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "newkeys(reset=true)"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 1
+        },
+        "recv_seq_before": 0,
+        "recv_seq_after": 0,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "terminate:IntegrityFailure"
+      }
+    ]
+  },
+  {
+    "scenario": "09_terrapin_server_only_supports",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [
+      3
+    ],
+    "verdict": "silent_truncation",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "ignored_during_kex"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 3,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 5,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "UserauthSuccess",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 5
+        },
+        "recv_seq_before": 5,
+        "recv_seq_after": 6,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 6,
+        "msg": "ChannelData",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 6
+        },
+        "recv_seq_before": 6,
+        "recv_seq_after": 7,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "10_terrapin_client_only_supports",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [
+      3
+    ],
+    "verdict": "silent_truncation",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "ignored_during_kex"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 3,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 5,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "UserauthSuccess",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 5
+        },
+        "recv_seq_before": 5,
+        "recv_seq_after": 6,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 6,
+        "msg": "ChannelData",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 6
+        },
+        "recv_seq_before": 6,
+        "recv_seq_after": 7,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "11_strip_forward_markers",
+    "sender_strict": true,
+    "receiver_strict": false,
+    "termination": "ExchangeHashMismatch",
+    "terminated_at_wire_index": 2,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "ignored_during_kex"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "terminate:ExchangeHashMismatch"
+      }
+    ]
+  },
+  {
+    "scenario": "12_strip_reverse_markers",
+    "sender_strict": false,
+    "receiver_strict": true,
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "terminated_at_wire_index": 1,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "terminate:StrictUnexpectedDuringInitialKex"
+      }
+    ]
+  },
+  {
+    "scenario": "13_strict_ignore_before_kexinit",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": "StrictFirstPacketNotKexinit",
+    "terminated_at_wire_index": 1,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexinit",
+        "strict": false,
+        "action": "ignored_before_kexinit"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexinit",
+        "strict": true,
+        "action": "terminate:StrictFirstPacketNotKexinit"
+      }
+    ]
+  },
+  {
+    "scenario": "14_legacy_ignore_before_kexinit",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": "IntegrityFailure",
+    "terminated_at_wire_index": 4,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexinit",
+        "strict": false,
+        "action": "ignored_before_kexinit"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 3,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ExtInfo",
+        "honest_index": 3,
+        "tag": {
+          "Seq": 3
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 4,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "terminate:IntegrityFailure"
+      }
+    ]
+  },
+  {
+    "scenario": "15_rekey_markers_ignored",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ServiceAccept",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [
+      3
+    ],
+    "verdict": "silent_truncation",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "ignored_during_kex"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 3,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 5,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "Kexinit",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 5
+        },
+        "recv_seq_before": 5,
+        "recv_seq_after": 6,
+        "phase_before": "Established",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "rekey_kexinit(markers_ignored)"
+      },
+      {
+        "wire_index": 6,
+        "msg": "KexEcdhReply",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 6
+        },
+        "recv_seq_before": 6,
+        "recv_seq_after": 7,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 7,
+        "msg": "Newkeys",
+        "honest_index": 7,
+        "tag": {
+          "Seq": 7
+        },
+        "recv_seq_before": 7,
+        "recv_seq_after": 8,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 8,
+        "msg": "ChannelData",
+        "honest_index": 8,
+        "tag": {
+          "Seq": 8
+        },
+        "recv_seq_before": 8,
+        "recv_seq_after": 9,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "16_reset_first_only_receiver",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": "IntegrityFailure",
+    "terminated_at_wire_index": 8,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "ChannelData",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ExtInfo",
+      "ServiceAccept"
+    ],
+    "lost_honest_indices": [
+      8,
+      9
+    ],
+    "verdict": "false_abort",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": true,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 2,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 0,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "newkeys(reset=true)"
+      },
+      {
+        "wire_index": 3,
+        "msg": "ExtInfo",
+        "honest_index": 3,
+        "tag": {
+          "Seq": 0
+        },
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 1
+        },
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "Kexinit",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 2
+        },
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "Established",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "rekey_kexinit(markers_ignored)"
+      },
+      {
+        "wire_index": 6,
+        "msg": "KexEcdhReply",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 3
+        },
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": true,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 7,
+        "msg": "Newkeys",
+        "honest_index": 7,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 5,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 8,
+        "msg": "ChannelData",
+        "honest_index": 8,
+        "tag": {
+          "Seq": 0
+        },
+        "recv_seq_before": 5,
+        "recv_seq_after": 5,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "terminate:IntegrityFailure"
+      }
+    ]
+  },
+  {
+    "scenario": "17_reset_first_only_both",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "ChannelData",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "ChannelData",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [],
+    "verdict": "intact",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": true,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 2,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 0,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "newkeys(reset=true)"
+      },
+      {
+        "wire_index": 3,
+        "msg": "ExtInfo",
+        "honest_index": 3,
+        "tag": {
+          "Seq": 0
+        },
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 4,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 1
+        },
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "Kexinit",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 2
+        },
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "Established",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "rekey_kexinit(markers_ignored)"
+      },
+      {
+        "wire_index": 6,
+        "msg": "KexEcdhReply",
+        "honest_index": 6,
+        "tag": {
+          "Seq": 3
+        },
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": true,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 7,
+        "msg": "Newkeys",
+        "honest_index": 7,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 5,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 8,
+        "msg": "ChannelData",
+        "honest_index": 8,
+        "tag": {
+          "Seq": 5
+        },
+        "recv_seq_before": 5,
+        "recv_seq_after": 6,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 9,
+        "msg": "ChannelData",
+        "honest_index": 9,
+        "tag": {
+          "Seq": 6
+        },
+        "recv_seq_before": 6,
+        "recv_seq_after": 7,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": true,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "18_forged_encrypted_injection",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": "IntegrityFailure",
+    "terminated_at_wire_index": 4,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "ExtInfo"
+    ],
+    "lost_honest_indices": [
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 2,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 3,
+        "msg": "ExtInfo",
+        "honest_index": 3,
+        "tag": {
+          "Seq": 3
+        },
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 4,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "Forged",
+        "recv_seq_before": 4,
+        "recv_seq_after": 4,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "terminate:IntegrityFailure"
+      }
+    ]
+  },
+  {
+    "scenario": "19_terrapin_c2s_legacy",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": null,
+    "terminated_at_wire_index": null,
+    "honest_upper": [
+      "ServiceRequest",
+      "UserauthRequest",
+      "ChannelData"
+    ],
+    "delivered_upper": [
+      "UserauthRequest",
+      "ChannelData"
+    ],
+    "lost_honest_indices": [
+      3
+    ],
+    "verdict": "silent_truncation",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "ignored_during_kex"
+      },
+      {
+        "wire_index": 2,
+        "msg": "KexEcdhInit",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 3,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 3,
+        "recv_seq_after": 4,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 4,
+        "msg": "UserauthRequest",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 4,
+        "recv_seq_after": 5,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      },
+      {
+        "wire_index": 5,
+        "msg": "ChannelData",
+        "honest_index": 5,
+        "tag": {
+          "Seq": 5
+        },
+        "recv_seq_before": 5,
+        "recv_seq_after": 6,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "delivered"
+      }
+    ]
+  },
+  {
+    "scenario": "20_terrapin_c2s_strict",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "terminated_at_wire_index": 1,
+    "honest_upper": [
+      "ServiceRequest",
+      "UserauthRequest",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Ignore",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "terminate:StrictUnexpectedDuringInitialKex"
+      }
+    ]
+  },
+  {
+    "scenario": "21_drop_without_inject_legacy",
+    "sender_strict": false,
+    "receiver_strict": false,
+    "termination": "IntegrityFailure",
+    "terminated_at_wire_index": 3,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": false,
+        "action": "kexinit(strict=false)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "KexEcdhReply",
+        "honest_index": 1,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitNewkeys",
+        "strict": false,
+        "action": "kex_method"
+      },
+      {
+        "wire_index": 2,
+        "msg": "Newkeys",
+        "honest_index": 2,
+        "tag": "None",
+        "recv_seq_before": 2,
+        "recv_seq_after": 3,
+        "phase_before": "AwaitNewkeys",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "newkeys(reset=false)"
+      },
+      {
+        "wire_index": 3,
+        "msg": "ServiceAccept",
+        "honest_index": 4,
+        "tag": {
+          "Seq": 4
+        },
+        "recv_seq_before": 3,
+        "recv_seq_after": 3,
+        "phase_before": "Established",
+        "phase_after": "Established",
+        "strict": false,
+        "action": "terminate:IntegrityFailure"
+      }
+    ]
+  },
+  {
+    "scenario": "22_injected_kex_message_strict",
+    "sender_strict": true,
+    "receiver_strict": true,
+    "termination": "StrictUnexpectedDuringInitialKex",
+    "terminated_at_wire_index": 1,
+    "honest_upper": [
+      "ExtInfo",
+      "ServiceAccept",
+      "UserauthSuccess",
+      "ChannelData"
+    ],
+    "delivered_upper": [],
+    "lost_honest_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "verdict": "detected",
+    "trace": [
+      {
+        "wire_index": 0,
+        "msg": "Kexinit",
+        "honest_index": 0,
+        "tag": "None",
+        "recv_seq_before": 0,
+        "recv_seq_after": 1,
+        "phase_before": "AwaitKexinit",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "kexinit(strict=true)"
+      },
+      {
+        "wire_index": 1,
+        "msg": "Kexinit",
+        "honest_index": null,
+        "tag": "None",
+        "recv_seq_before": 1,
+        "recv_seq_after": 2,
+        "phase_before": "AwaitKexMethod",
+        "phase_after": "AwaitKexMethod",
+        "strict": true,
+        "action": "terminate:StrictUnexpectedDuringInitialKex"
+      }
+    ]
+  }
+]

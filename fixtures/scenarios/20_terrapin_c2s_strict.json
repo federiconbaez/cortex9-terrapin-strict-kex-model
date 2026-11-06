@@ -1,0 +1,31 @@
+{
+  "name": "20_terrapin_c2s_strict",
+  "description": "Client-to-server direction, strict KEX on both sides.",
+  "client": {
+    "supports_strict": true
+  },
+  "server": {
+    "supports_strict": true
+  },
+  "binding": "SeqBound",
+  "direction": "client_to_server",
+  "stream": [
+    "Kexinit",
+    "KexEcdhInit",
+    "Newkeys",
+    "ServiceRequest",
+    "UserauthRequest",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 1,
+      "msg": "Ignore"
+    },
+    {
+      "op": "drop",
+      "index": 3
+    }
+  ]
+}

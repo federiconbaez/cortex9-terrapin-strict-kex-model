@@ -1,0 +1,34 @@
+{
+  "name": "08_terrapin_strict_b_only",
+  "description": "Counterfactual: strict negotiated, only defense (b) sequence reset active.",
+  "client": {
+    "supports_strict": true,
+    "reject_unexpected": false
+  },
+  "server": {
+    "supports_strict": true,
+    "reject_unexpected": false
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "UserauthSuccess",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 1,
+      "msg": "Ignore"
+    },
+    {
+      "op": "drop",
+      "index": 3
+    }
+  ]
+}

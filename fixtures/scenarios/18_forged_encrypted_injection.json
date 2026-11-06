@@ -1,0 +1,29 @@
+{
+  "name": "18_forged_encrypted_injection",
+  "description": "Attacker injects bytes after NEWKEYS claiming to be an encrypted IGNORE.",
+  "client": {
+    "supports_strict": false
+  },
+  "server": {
+    "supports_strict": false
+  },
+  "binding": "SeqBound",
+  "direction": "server_to_client",
+  "stream": [
+    "Kexinit",
+    "KexEcdhReply",
+    "Newkeys",
+    "ExtInfo",
+    "ServiceAccept",
+    "UserauthSuccess",
+    "ChannelData"
+  ],
+  "attack": [
+    {
+      "op": "inject_before",
+      "index": 4,
+      "msg": "Ignore",
+      "forged_encrypted": true
+    }
+  ]
+}
