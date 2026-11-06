@@ -43,6 +43,10 @@ los paquetes legítimos de capa superior no entregados: `intact`,
 atacante, conexión terminada). El modelo nunca lee el resultado esperado
 (`fixtures/expected.json` solo lo leen los tests).
 
+## Práctica
+
+Ejercicios graduados offline: [PRACTICE.md](PRACTICE.md).
+
 ## Uso
 
 ```sh

@@ -54,6 +54,8 @@ Nothing in the model reads the expected outcome.
 | `fixtures/expected.json` | Expected verdicts, kept separate; read only by tests |
 | `fixtures/sweep/*.json` | Base scenarios for the counterfactual sweep |
 | `tests/fixtures.rs` | Integration and unit tests |
+| `tests/practice.rs` | Checks the claims made in PRACTICE.md |
+| `PRACTICE.md` | Graded offline exercises (ES, EN summary) |
 | `results/` | Generated CSV/JSON and `SHA256SUMS` |
 
 ## Usage
