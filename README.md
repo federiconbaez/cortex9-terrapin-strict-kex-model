@@ -1,6 +1,6 @@
 # cortex9-terrapin-strict-kex-model
 
-[Español](README.es.md)
+[Español](README.es.md) · [CI](https://github.com/federiconbaez/cortex9-terrapin-strict-kex-model/actions/workflows/ci.yml)
 
 An abstract, executable state model of the SSH transport sequence-number
 binding and the two OpenSSH "strict KEX" countermeasures, used to reason about

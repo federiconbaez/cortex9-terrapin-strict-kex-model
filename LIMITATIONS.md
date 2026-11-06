@@ -31,5 +31,6 @@
   about any shipped implementation.
 - **Fixture 17** (both sides reset only at the first NEWKEYS) is `intact`:
   a consistent but non-compliant pair is not caught by a benign-only check.
-- CI is defined in `.github/workflows/ci.yml` but has only been run locally
-  with the same commands (rustc 1.99.1), not on a hosted runner.
+- CI is defined in `.github/workflows/ci.yml` and runs on GitHub Actions
+  (live status: the Actions page linked from the README). The same commands
+  were also run locally with rustc 1.99.1.
