@@ -74,7 +74,9 @@ Encuentra la línea de `Sender`/`Receiver` que lo garantiza.
 **Nivel 6 — interoperabilidad.**
 Abre `results/sweep.csv` y filtra `base=sweep_base_benign_rekey`. Explica los
 8 `false_abort`: ¿qué pares de configuraciones son y por qué la contramedida
-(b) tiene que aplicarse en ambos extremos?
+(b) tiene que aplicarse en ambos extremos? Recuerda que esos pares son
+contrafactuales a propósito (un lado con (b) desactivada): no describen strict
+KEX conforme ni un defecto de la especificación.
 
 **Nivel 7 — extender el modelo (código).**
 Agrega a `Msg` un mensaje nuevo válido "en cualquier momento" (por ejemplo
@@ -118,7 +120,8 @@ Levels: (1) read the trace of fixtures 01 vs 04; (2) inject 2 / drop 2
 packet (detected) and move the injection to just before NEWKEYS (silent);
 (4) `Debug` under strict, then (a)-only and (b)-only; (5) negotiation
 fixtures 09–12 and 15; (6) explain the 8 benign `false_abort` rows in
-`results/sweep.csv`; (7) add a new any-time message type with scenario,
+`results/sweep.csv` (deliberately asymmetric counterfactual pairs, not a
+strict-KEX defect); (7) add a new any-time message type with scenario,
 expectation and test; (8) write a pure pair classifier and validate it
 against the sweep. Claims for levels 2–4 are checked by `tests/practice.rs`.
 The mapping table above links each real CVE element to the model code.

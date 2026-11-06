@@ -106,9 +106,13 @@ configs × 5 server configs × 2 bindings):
   integrity failure.
 - Attack base, `InvocationCounter`: 25 of 25 detected.
 - Benign base with one re-exchange, `SeqBound`: 17 intact, 8 false_abort. The
-  aborts are exactly the pairs where one side resets the sequence number and
-  the other does not. In this model, turning (b) off on only one side breaks
-  interoperability.
+  8 aborts are **deliberately asymmetric, counterfactual configurations**
+  built for this sweep: one endpoint has countermeasure (b) switched off
+  (`strict_a_only` or `strict_no_defense`) while the other keeps it. PROTOCOL
+  requires both endpoints that negotiate strict KEX to apply (b) at every
+  NEWKEYS, so these pairs do not describe a conforming implementation. They
+  are **not** a defect of strict KEX as specified; they show why (b) has to
+  be applied on both sides. Every symmetric configuration is intact.
 - Benign base, `InvocationCounter`: 25 of 25 intact.
 
 These counts describe this model only. They are not measurements of any SSH

@@ -21,6 +21,11 @@
 - **Sweep counts are model facts.** The numbers in README and
   `results/sweep.csv` describe this model under these fixtures, not field
   measurements.
+- **The 8 benign `false_abort` rows in `results/sweep.csv` are
+  counterfactual.** They come from pairing an endpoint with countermeasure
+  (b) disabled against one that applies it. Strict KEX as specified requires
+  (b) on both endpoints, so these rows are not a finding about strict KEX or
+  about any implementation.
 - **Defect variants are hypothetical.** `reset_seq_first_only` and disabling
   (a) or (b) are counterfactuals for testing the model; they are not claims
   about any shipped implementation.

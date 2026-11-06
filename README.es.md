@@ -65,8 +65,14 @@ y en `results/scenarios.csv`. Resumen del barrido contrafactual
   lado `legacy`; 2 donde el cliente receptor no tiene ninguna contramedida y
   el servidor tampoco reinicia).
 - Ataque, `InvocationCounter`: 25/25 detectados.
-- Benigno con un re-intercambio, `SeqBound`: 17 intactos, 8 `false_abort`,
-  exactamente los pares donde un lado reinicia la secuencia y el otro no.
+- Benigno con un re-intercambio, `SeqBound`: 17 intactos, 8 `false_abort`.
+  Esos 8 son **configuraciones asimétricas contrafactuales, construidas a
+  propósito** para el barrido: un extremo tiene la contramedida (b)
+  desactivada y el otro no. PROTOCOL exige que ambos extremos con strict KEX
+  apliquen (b) en cada NEWKEYS, así que esos pares no describen una
+  implementación conforme. **No** son un defecto de strict KEX tal como está
+  especificado; muestran por qué (b) debe aplicarse en ambos lados. Toda
+  configuración simétrica queda intacta.
 - Benigno, `InvocationCounter`: 25/25 intactos.
 
 Estas cifras describen solo el modelo; no son mediciones de ninguna
